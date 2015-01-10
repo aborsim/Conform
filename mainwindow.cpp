@@ -29,12 +29,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::convert()
 {
-    std::cout << "Preparing for conversion.\n";
     threads.setMaxThreadCount(this->ui->threadCount->value());
-    std::cout << "Prepariation done.\n";
     for (int i = 0; i < files.count(); i++)
     {
-        std::cout << "Executing conversion on thread " << i << "\n";
         ConverterRunnable *converter = new ConverterRunnable(this, getArgs(i), i);
         threads.start(converter);
     }
@@ -43,12 +40,12 @@ void MainWindow::convert()
 QString MainWindow::getArgs(int pos)
 {
     QString args("ffmpeg ");
-    QStringList output(QDir(ui->outputPath->text()).absoluteFilePath(files.at(pos)).split("."));
-    output[output.count() - 1] = ui->container->text();
-    std::cout << "Output path: " << output.join(".").toStdString();
+    QStringList outputList = files.at(pos).split(QDir::separator()).last().split("."); //Get file path
+    outputList[outputList.count() - 1] = ui->container->text();
+    QString output = QDir(ui->outputPath->text()).absoluteFilePath(outputList.join("."));
     args += "-i \"" + files.at(pos) + "\"" +\
             " -s " + ui->width->text() + "x" + ui->height->text() +\
-            " " + ui->additionalArgs->text() + " \"" + output.join(".") + "\"";
+            " " + ui->additionalArgs->text() + " \"" + output + "\"";
     return args;
 }
 
