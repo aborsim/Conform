@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Conform. : A Multithreaded GPL Video Converter">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Conform.</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/aborsim/Conform">View on GitHub</a>
+
+          <h1 id="project_title">Conform.</h1>
+          <h2 id="project_tagline">A Multithreaded GPL Video Converter</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/aborsim/Conform/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/aborsim/Conform/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a id="disclaimer-very-buggy-even-the-instructions-may-be-wrong" class="anchor" href="#disclaimer-very-buggy-even-the-instructions-may-be-wrong" aria-hidden="true"><span class="octicon octicon-link"></span></a>DISCLAIMER: VERY BUGGY. EVEN THE INSTRUCTIONS MAY BE WRONG.</h2>
+
+<h1>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h1>
+
+<p>I was looking around for a good open source GPL media converter. But every single one I found seemed to be slow and only able to process one file at a time. So I wrote an FFmpeg wrapper that can take on several files at once. Enjoy! And report any bugs you find so that I can fix them. :)</p>
+
+<h1>
+<a id="building-instructions" class="anchor" href="#building-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building Instructions</h1>
+
+<p>This project has only been tested to work on Linux (Linux Mint 17) and is unlikely to work on any other OS at the moment. It project requires Qt5, FFmpeg, and jsoncpp. The following commands should have you covered:</p>
+
+<pre><code>sudo add-apt-repository ppa:ppa:mc3man/trusty-media
+sudo apt-get update
+sudo apt-get qtdeclarative5-dev cmake ffmpeg
+git clone https://github.com/open-source-parsers/jsoncpp.git
+cd jsoncpp
+cmake .
+make &amp;&amp; sudo make install
+</code></pre>
+
+<p>Now, onto building it:</p>
+
+<pre><code>git clone https://github.com/aborsim/Conform.git
+cd Conform
+qmake .
+make
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Conform. maintained by <a href="https://github.com/aborsim">aborsim</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
