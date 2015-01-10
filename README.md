@@ -9,13 +9,22 @@ I was looking around for a good open source GPL media converter. But every singl
 This project has only been tested to work on Linux (Linux Mint 17) and is unlikely to work on any other OS at the moment. It project requires Qt5, FFmpeg, and jsoncpp. The following commands should have you covered:
 ```
 sudo add-apt-repository ppa:ppa:mc3man/trusty-media
-sudo apt-geet update
-sudo apt-get install qt5-default qttools5-dev-tools cmake ffmpeg
+sudo apt-get update
+sudo apt-get qtdeclarative5-dev cmake ffmpeg
 git clone https://github.com/open-source-parsers/jsoncpp.git
 cd jsoncpp
 cmake .
 make && sudo make install
 ```
+Now, onto building it:
+```
+git clone https://github.com/aborsim/Conform.git
+cd Conform
+qmake .
+make
+```
+
+
 
 
 
