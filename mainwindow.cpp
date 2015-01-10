@@ -6,7 +6,7 @@
 #include <QThreadPool>
 #include "cmder.cpp"
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "ui_mainwindow.h" //Import auto-generated code
 #include "converterrunnable.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->threadCount->setMaximum(std::thread::hardware_concurrency());
 
-    connect(ui->actionConvert, SIGNAL(triggered()), this, SLOT(convert()));
+    connect(ui->actionConvert, SIGNAL(triggered()), this, SLOT(convert())); //Connect buttons to appropriate functions
     connect(ui->actionOpen, SIGNAL(triggered()), this, SLOT(addFiles()));
     connect(ui->pathBrowser, SIGNAL(clicked()), this, SLOT(setPath()));
     connect(ui->actionQuit, SIGNAL(triggered()), qApp, SLOT(quit()));
@@ -42,13 +42,13 @@ void MainWindow::convert()
 
 QString MainWindow::getArgs(int pos)
 {
-    QString args("ffmpeg "); args += ui->additionalArgs->text();
+    QString args("ffmpeg ");
     QStringList output(QDir(ui->outputPath->text()).absoluteFilePath(files.at(pos)).split("."));
     output[output.count() - 1] = ui->container->text();
     std::cout << "Output path: " << output.join(".").toStdString();
-    args += "-i " + files.at(pos) +\
+    args += "-i \"" + files.at(pos) + "\"" +\
             " -s " + ui->width->text() + "x" + ui->height->text() +\
-            " " + output.join(".");
+            " " + ui->additionalArgs->text() + " \"" + output.join(".") + "\"";
     return args;
 }
 
