@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>resources/convert.png</file>
+        <file>resources/open.png</file>
+        <file>resources/options.png</file>
+        <file>resources/quit.png</file>
+        <file>resources/conform.png</file>
+    </qresource>
+</RCC>
