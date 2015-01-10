@@ -191,7 +191,7 @@
             <item>
              <widget class="QLineEdit" name="outputPath">
               <property name="text">
-               <string>/home/myself/Videos/Conform output</string>
+               <string/>
               </property>
              </widget>
             </item>
