@@ -22,7 +22,15 @@ qmake .
 make
 ```
 
+# Contributing
+Get the latest version of Qt 5, which should also install Qt Creator:
+```
+wget http://download.qt-project.org/official_releases/online_installers/qt-opensource-linux-x64-online.run
+chmod +x qt-opensource-linux-x64-online.run
+sudo ./qt-opensource-linux-x64-online.run
+```
 
+I *highly* suggest you develop this project in Qt Creator as this project was created with Qt and I used it for development.
 
 
 
