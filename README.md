@@ -1,7 +1,5 @@
 ## DISCLAIMER: VERY BUGGY. EVEN THE INSTRUCTIONS MAY BE WRONG.
 
-# Conform v0.1
-
 # Description:
 I was looking around for a good open source GPL media converter. But every single one I found seemed to be slow and only able to process one file at a time. So I wrote an FFmpeg wrapper that can take on several files at once. Enjoy! And report any bugs you find so that I can fix them. :)
 
