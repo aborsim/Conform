@@ -3,6 +3,7 @@
 
 #include <thread>
 #include <QThreadPool>
+#include <QMenu>
 #include <QMainWindow>
 
 namespace Ui {
@@ -24,10 +25,13 @@ private slots:
     void convert();
     void addFiles();
     void setPath();
+    void listContextMenu(const QPoint&);
+    void deleteItem();
     //void setStatus(QString, int);
 
 private:
     Ui::MainWindow *ui;
+    QMenu *mediaMenu = new QMenu;
     QString getArgs(int);
     void setDefaults(QString);
     void populateList();

@@ -16,10 +16,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->threadCount->setMaximum(std::thread::hardware_concurrency());
 
+    mediaMenu->addAction(ui->actionDelete);
+
     connect(ui->actionConvert, SIGNAL(triggered()), this, SLOT(convert())); //Connect buttons to appropriate functions
     connect(ui->actionOpen, SIGNAL(triggered()), this, SLOT(addFiles()));
     connect(ui->pathBrowser, SIGNAL(clicked()), this, SLOT(setPath()));
     connect(ui->actionQuit, SIGNAL(triggered()), qApp, SLOT(quit()));
+
+    connect(ui->mediaList, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(listContextMenu(const QPoint&))); //Connect media list functions
+    connect(ui->actionDelete, SIGNAL(triggered()), this, SLOT(deleteItem()));
 }
 
 MainWindow::~MainWindow()
@@ -55,6 +60,7 @@ void MainWindow::addFiles()
     QFileDialog dialog(this);
     dialog.setFileMode(QFileDialog::ExistingFiles);
     if (dialog.exec()) {files = dialog.selectedFiles();}
+    if (files.count() == 0) return;
     for (int i = 0; i < files.size(); i++)
     {
         QStringList file(files.at(i)); file.append("Ready");
@@ -90,4 +96,16 @@ void MainWindow::setStatus(QString status, int pos)
     ui->mediaList->topLevelItem(pos)->setText(1, status);
     QCoreApplication::processEvents();
     std::cout << "Status set\n";
+}
+
+void MainWindow::listContextMenu(const QPoint& point)
+{
+    QPoint globalPoint = ui->mediaList->mapToGlobal(point);
+    mediaMenu->exec(globalPoint);
+}
+
+void MainWindow::deleteItem()
+{
+    if (ui->mediaList->currentItem())
+        delete ui->mediaList->currentItem();
 }

@@ -17,6 +17,9 @@
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QTreeWidget" name="mediaList">
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
       <column>
        <property name="text">
         <string>Media File</string>
@@ -315,6 +318,9 @@
    <property name="text">
     <string>Convert</string>
    </property>
+   <property name="toolTip">
+    <string>Convert Files</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+S, Return</string>
    </property>
@@ -326,6 +332,9 @@
    </property>
    <property name="text">
     <string>Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Quit Program</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
@@ -342,8 +351,22 @@
    <property name="text">
     <string>Options</string>
    </property>
+   <property name="toolTip">
+    <string>Options (Not Implemented Yet)</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete Currently Selected Item</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
    </property>
   </action>
  </widget>
